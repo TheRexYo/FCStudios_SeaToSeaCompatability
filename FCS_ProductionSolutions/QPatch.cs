@@ -110,7 +110,23 @@ namespace FCS_ProductionSolutions
                 {
                     QuickLogger.Info("Return Of The Ancients was not Found");
                 }
+                
+                //C2C Compatability Tests
+                if (TechTypeHandler.ModdedTechTypeExists("IRIDIUM"))
+                {
+                    QuickLogger.Info("Trying to Add C2C Ores and Resources");
+                    AddROTAOre("IRIDIUM", out var iridium)
+                    AddROTAOre("PLATINUM", out var platinum)
+                    AddROTAOre("PHASE_CRYSTAL", out var phase_crystal)
+                    AddROTAOre("VENT_CRYSTAL", out var vent_crystal)
+                    AddROTAOre("PRESSURE_CRYSTALS", out var pressure_crystals)
+                }
+                else
+                {
+                    QuickLogger.Info("Sea to Sea was not Found");
+                }
             }
+            
 
             if (Configuration.IsAutocrafterEnabled)
             {
